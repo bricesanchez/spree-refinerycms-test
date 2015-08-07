@@ -4,7 +4,23 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+group :production, :staging do
+  # gem "pg"
+  # gem "mysql"
+
+end
+
+
+gem 'rails_12factor', group: :production
+
+group :development, :test do
+  gem "sqlite3-ruby", "~> 1.3.0", :require => "sqlite3"
+
+
+
+
+
+end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -13,7 +29,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'htmlbeautifier'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -43,3 +59,33 @@ group :development, :test do
   gem 'spring'
 end
 
+
+gem 'refinerycms', git: 'https://github.com/refinery/refinerycms', branch: 'master'
+
+gem 'quiet_assets', :group => :development
+
+# Add support for searching inside Refinery's admin interface.
+gem 'refinerycms-acts-as-indexed', ['~> 2.0', '>= 2.0.0']
+
+# Add support for Refinery's custom fork of the visual editor WYMeditor.
+gem 'refinerycms-wymeditor', ['~> 1.0', '>= 1.0.6']
+
+gem 'refinerycms-blog', git: 'https://github.com/refinery/refinerycms-blog', branch: 'master'
+
+gem 'fog'
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
+gem 'omniauth-vkontakte'
+
+# gem 'refinerycms-events', path: 'vendor/extensions'
+gem 'devise', '~> 3.4.1'
+
+
+gem 'spree', github: 'spree/spree', branch: 'master'
+
+gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: 'master'
+
+gem 'spree-refinerycms-authentication', github: 'bricesanchez/spree-refinery-authentication', branch: '3-0-stable'
